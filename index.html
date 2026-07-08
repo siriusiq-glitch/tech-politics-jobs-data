@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech&amp;Politics 세미나 | AI가 먼저 삼킨 일자리?</title>
+  <meta property="og:title" content="Tech&amp;Politics 세미나 - AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다">
+  <meta property="og:description" content="2026년 7월 13일(월) 오후 6시 · 국회의원회관 제5간담회의실 · 이준 웍스피어 전무 특강">
+  <meta property="og:image" content="https://siriusiq-glitch.github.io/ai-jobs-poster.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --gray-dark: #333;
+      --gray: #666;
+      --gray-light: #999;
+      --border: #e0e0e0;
+      --bg-light: #f7f7f5;
+      --accent: #1a3a6b;
+      --accent-light: #e8edf5;
+      --white: #fff;
+      --font: 'Noto Sans KR', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-sub {
+      font-size: 12px;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 5vw 80px;
+      overflow: hidden;
+      background: radial-gradient(120% 90% at 50% 0%, #17253f 0%, #0c1220 55%, #080c15 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 60vw; height: 60vw;
+      background: radial-gradient(circle, rgba(230,196,74,0.10) 0%, rgba(230,196,74,0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5.4vw, 66px);
+      font-weight: 900;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .hero-title .hl { color: #ecc84a; }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: rgba(255,255,255,0.78);
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 620px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .hero-cta:hover { opacity: 0.85; }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 5vw;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 32px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--bg-light);
+    }
+
+    .about-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .about-en {
+      font-size: 14px;
+      color: var(--gray-light);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .about-desc {
+      font-size: 15px;
+      color: var(--gray-dark);
+      max-width: 680px;
+      line-height: 1.85;
+    }
+
+    /* RECENT */
+    .recent-list {
+      list-style: none;
+      max-width: 780px;
+    }
+
+    .recent-list li {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.75;
+    }
+
+    .recent-list li:first-child { padding-top: 0; }
+    .recent-list li:last-child { border-bottom: none; }
+
+    .recent-list strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .recent-meta {
+      font-size: 13px;
+      color: var(--gray-light);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .recent-summary {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* PHOTOS */
+    .photos {
+      padding: 60px 5vw;
+      background: var(--bg-light);
+    }
+
+    .photo-group {
+      margin-bottom: 48px;
+    }
+
+    .photo-group:last-child { margin-bottom: 0; }
+
+    .photo-group-label {
+      font-size: 12px;
+      color: var(--gray-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-single img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* SEMINAR DETAIL */
+    .seminar-detail {
+      max-width: 860px;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 20px 28px;
+      background: var(--accent-light);
+      margin-bottom: 40px;
+      font-size: 16px;
+      color: var(--gray-dark);
+      line-height: 1.75;
+    }
+
+    blockquote cite {
+      display: block;
+      font-size: 13px;
+      color: var(--gray-light);
+      font-style: normal;
+      margin-top: 10px;
+    }
+
+    .seminar-desc {
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    /* FINDINGS */
+    .findings {
+      list-style: none;
+      max-width: 720px;
+      margin-bottom: 12px;
+    }
+
+    .findings-source {
+      font-size: 13px;
+      color: var(--gray-light);
+      margin-bottom: 40px;
+    }
+
+    .seminar-theme {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .findings li {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+
+    .findings li:first-child { border-top: 1px solid var(--border); }
+
+    .findings strong {
+      display: block;
+      color: var(--black);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .findings em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* TABLE */
+    .info-table {
+      width: 100%;
+      max-width: 620px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:first-child {
+      border-top: 2px solid var(--black);
+    }
+
+    .info-table td {
+      padding: 16px 12px;
+      vertical-align: top;
+    }
+
+    .info-table td:first-child {
+      color: var(--gray);
+      font-weight: 500;
+      width: 80px;
+      white-space: nowrap;
+    }
+
+    .info-table td:last-child {
+      color: var(--black);
+      font-weight: 400;
+    }
+
+    /* FORM */
+    .form-section {
+      background: var(--bg-light);
+      max-width: none;
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--gray-light);
+      margin-bottom: 36px;
+    }
+
+    .form-inner {
+      max-width: 480px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-dark);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent);
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 14px 32px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--accent); }
+
+    .form-success {
+      display: none;
+      padding: 32px 0;
+    }
+
+    .form-success.show { display: block; }
+
+    .success-check {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .success-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .success-msg {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 5vw;
+      font-size: 13px;
+      color: var(--gray-light);
+      border-top: 1px solid var(--border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 0 4vw; }
+      section { padding: 60px 5vw; }
+      .hero { padding: 100px 5vw 60px; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-grid img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Tech&amp;Politics</a>
+  <span class="nav-sub">국회 기술과 정치 연구회</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-label">네 번째 국회 세미나 &middot; 2026. 07. 13.</p>
+    <h1 class="hero-title"><span class="hl">AI가 먼저 삼킨 일자리?</span><br>국내 1위 채용 데이터에<br>물었다</h1>
+    <p class="hero-sub">잡코리아·알바몬 데이터로 본 일자리 변화와 정치의 과제</p>
+    <a href="#form" class="hero-cta">모임 신청하기 →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="section-label">About</p>
+  <h2 class="about-title">국회 기술과 정치 연구회</h2>
+  <p class="about-en">Tech &amp; Politics</p>
+  <p class="about-desc">
+    에너지, AI, 조선, 방산, 핵심광물, 우주 — 기술이 정치를 만나는 곳에서 일하고 연구합니다.<br><br>
+    전략기술이 국제정치·안보·외교와 교차하는 지점을 분석하고, 정부·산업·전문가와의 교류를 통해 우리의 역할을 탐색합니다.
+  </p>
+</section>
+
+<!-- SEMINAR DETAIL -->
+<section id="seminar">
+  <p class="section-label">네 번째 국회 세미나</p>
+  <div class="seminar-detail">
+
+    <ul class="findings">
+      <li>
+        <strong>공고는 줄고, 지원자는 폭증</strong>
+        최근 3년, 채용공고 <em>43% 감소</em> · 입사지원 <em>2.1배 증가</em> → 공고 1건당 경쟁률 <em>3.6배 증가</em>
+      </li>
+      <li>
+        <strong>세대 양끝이 함께 좁아진다</strong>
+        최근 3년, 신입 공고 <em>48% 감소</em> · 시니어·중장년 <em>46% 감소</em> · 경력직조차 <em>26% 감소</em>
+      </li>
+      <li>
+        <strong>AI 직무만 역주행</strong>
+        올해 상반기, AI 직무 공고 <em>1.7배 증가</em>
+      </li>
+    </ul>
+    <p class="findings-source">— 잡코리아·알바몬 채용 데이터</p>
+
+    <p class="seminar-theme">잡코리아·알바몬 데이터로 본 일자리 변화와 정치의 과제</p>
+    <p class="seminar-desc">
+      AI는 정말 일자리를 먼저 삼키고 있나. 국내 1위 채용 플랫폼 잡코리아·알바몬의 실제 데이터로
+      일자리 변화의 실체와 정치의 과제를 이준 웍스피어 전무와 함께 짚는다.
+    </p>
+
+    <table class="info-table">
+      <tr>
+        <td>주제</td>
+        <td>AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다</td>
+      </tr>
+      <tr>
+        <td>강연자</td>
+        <td>이준 웍스피어 전무 (잡코리아·알바몬·잡플래닛 운영사)</td>
+      </tr>
+      <tr>
+        <td>일시</td>
+        <td>2026년 7월 13일(월) 오후 6시</td>
+      </tr>
+      <tr>
+        <td>장소</td>
+        <td>국회의원회관 제5간담회의실</td>
+      </tr>
+      <tr>
+        <td>주최</td>
+        <td>국회 기술과 정치 연구회 Tech &amp; Politics</td>
+      </tr>
+    </table>
+
+  </div>
+</section>
+
+<!-- RECENT -->
+<section id="recent">
+  <p class="section-label">Recent</p>
+  <ul class="recent-list">
+
+    <li>
+      <span class="recent-meta">세 번째 국회 세미나 · 백순흠 고려아연 사장 · 2026.06.19. · 국회의원회관 제1간담회의실</span>
+      <strong>「자원빈국 대한민국은 어떻게 제련소를 수출했나」</strong><br>
+      <span class="recent-summary">
+        20세기 후반 핵심광물·제련의 주도권을 쥐었던 미국은 21세기 들어 중국에 끌려다니고 있다.
+        적자 산업을 무한정 끌고 갈 수 없는 시장경제, 조정이 어려운 민주주의 체제의 핸디캡, 중국의 압도적 보조금과 저가공세가 겹친 결과다.
+        이 체제의 핸디캡이 구조적 실패로 끝나지 않게 하는 데에, 기술을 읽는 정치와 정치가의 역할이 있다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">두 번째 국회 세미나 · 이경전 경희대 교수 · 2026.05.11. · 국회의원회관 제1간담회의실</span>
+      <strong>「AI는 어떻게 우리의 무기가 되는가」</strong><br>
+      <span class="recent-summary">
+        일본·인도 사례처럼 유권자 소통과 공약 만들기에 AI를 활용하는 흐름은 이제 막을 수 없다.
+        의원실 챗봇은 지금 당장 돈 없이도 시작할 수 있는데, 홍보용보다 시민 의견 수렴용으로 활용 가치가 크다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">첫 번째 국회 세미나 · 최리군 상무 · 현대차 로보틱스사업실 · 2026.04.17. · 국회의원회관 제5간담회의실</span>
+      <strong>「피지컬AI와 로보틱스, 로보틱스랩의 도전」</strong><br>
+      <span class="recent-summary">
+        Atlas에 집약된 로보틱스와 시장의 열광. 그 화려한 이면에는 결국 이 거대한 흐름을 조율해야 할 정치의 역할이 있다.
+        기술 그 자체보다, 기술을 어떻게 수용하고 사회 시스템을 어떻게 재설계할지가 국가의 명운을 가르는 시대가 되었다.
+      </span>
+    </li>
+
+    <li>
+      <span class="recent-meta">한화오션 현장 특강 · 정인섭 사장 · 2026.01.12. · 한화오션 서울사무소</span>
+      <strong>「한미 조선협력과 조선산업의 미래」</strong><br>
+      <span class="recent-summary">
+        한미 조선협력은 단순한 공장 이전이나 하청 관계가 아니라 기술동맹의 성격을 갖는다.
+        미국의 해군·잠수함 역량을 보완하는 과정에 한국 조선산업이 참여하는 것은, 장기적으로 한국 조선기술을 글로벌 표준으로 끌어올리는 자산이 될 수 있다.
+      </span>
+    </li>
+
+  </ul>
+</section>
+
+<!-- PHOTOS -->
+<div class="photos">
+
+  <div class="photo-group">
+    <p class="photo-group-label">세 번째 국회 세미나 · 핵심광물</p>
+    <div class="photo-single">
+      <img src="https://siriusiq-glitch.github.io/critical-minerals-seminar.jpg" alt="세 번째 국회 세미나 현장 — 핵심광물">
+    </div>
+  </div>
+
+  <div class="photo-group">
+    <p class="photo-group-label">두 번째 국회 세미나 · AI정치</p>
+    <div class="photo-single">
+      <img src="https://siriusiq-glitch.github.io/ai-politics-seminar.jpg" alt="두 번째 국회 세미나 현장 — AI정치">
+    </div>
+  </div>
+
+  <div class="photo-group">
+    <p class="photo-group-label">첫 번째 국회 세미나 · 피지컬AI</p>
+    <div class="photo-grid">
+      <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673.jpg" alt="첫 번째 국회 세미나 현장">
+      <img src="https://siriusiq-glitch.github.io/KakaoTalk_20260424_115048673_01.jpg" alt="첫 번째 국회 세미나 강연">
+    </div>
+  </div>
+
+  <div class="photo-group">
+    <p class="photo-group-label">한화오션 현장 특강 · 한미조선</p>
+    <div class="photo-grid">
+      <img src="https://siriusiq-glitch.github.io/hanwha1.jpg" alt="한화오션 현장 특강 단체사진">
+      <img src="https://siriusiq-glitch.github.io/hanwha2.jpg" alt="한화오션 현장 특강 강연 사진">
+    </div>
+  </div>
+
+</div>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <p class="section-label">신청</p>
+
+  <div id="formWrap">
+    <h2 class="form-title">세미나 신청하기</h2>
+    <p class="form-note">신청 내용은 tech_n_politics@naver.com으로 전달됩니다.</p>
+
+    <form class="form-inner" id="applyForm">
+      <div class="form-row">
+        <label class="form-label" for="name">이름 <span style="color:#999">*</span></label>
+        <input class="form-input" type="text" id="name" name="name" required placeholder="">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="org">소속 <span style="color:#999">*</span></label>
+        <input class="form-input" type="text" id="org" name="org" required placeholder="">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="contact">연락처 <span style="color:#999">*</span></label>
+        <input class="form-input" type="text" id="contact" name="contact" required placeholder="">
+      </div>
+      <button type="submit" class="form-submit">신청하기 →</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <p class="success-check">✓</p>
+      <p class="success-title">신청이 완료되었습니다.</p>
+      <p class="success-msg">7월 13일(월) 오후 6시, 국회의원회관 제5간담회의실에서 뵙겠습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  국회 기술과 정치 연구회 Tech &amp; Politics &middot; 2026
+</footer>
+
+<script>
+  const form = document.getElementById('applyForm');
+  const success = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = {
+      이름: form.name.value,
+      소속: form.org.value,
+      연락처: form.contact.value,
+      세미나: '네 번째 국회 세미나 — AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다 (2026.07.13)'
+    };
+
+    // FormSubmit 사용
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/tech_n_politics@naver.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.querySelector('.form-title').style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        success.classList.add('show');
+      }
+    } catch(err) {
+      // fallback: mailto
+      const subject = encodeURIComponent('[세미나 신청] 네 번째 국회 세미나');
+      const body = encodeURIComponent(`이름: ${data.이름}\n소속: ${data.소속}\n연락처: ${data.연락처}`);
+      window.location.href = `mailto:tech_n_politics@naver.com?subject=${subject}&body=${body}`;
+    }
+  });
+</script>
+
+</body>
+</html>
