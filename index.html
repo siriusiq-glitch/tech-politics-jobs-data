@@ -684,7 +684,7 @@
 
   <div id="formWrap">
     <h2 class="form-title">세미나 신청하기</h2>
-    <p class="form-note">신청 내용은 tech_n_politics@naver.com으로 전달됩니다.</p>
+    <p class="form-note">신청하기를 누르면 메일 앱이 열리고 받는사람·내용이 자동으로 채워집니다. ‘보내기’만 누르면 tech_n_politics@naver.com으로 신청이 접수됩니다.</p>
 
     <form class="form-inner" id="applyForm">
       <div class="form-row">
@@ -705,9 +705,9 @@
     <p class="form-error" id="formError"></p>
 
     <div class="form-success" id="formSuccess">
-      <p class="success-check">✓</p>
-      <p class="success-title">신청이 완료되었습니다.</p>
-      <p class="success-msg">7월 13일(월) 오후 6시, 국회의원회관 제5간담회의실에서 뵙겠습니다.</p>
+      <p class="success-check">✉️</p>
+      <p class="success-title">메일 앱을 열었습니다.</p>
+      <p class="success-msg">받는사람과 신청 내용이 자동으로 채워집니다. <strong>‘보내기’를 눌러야 신청이 접수</strong>됩니다.<br>메일 앱이 열리지 않으면 <strong>tech_n_politics@naver.com</strong> 으로 이름·소속·연락처를 보내주세요.<br><br>7월 13일(월) 오후 6시, 국회의원회관 제5간담회의실에서 뵙겠습니다.</p>
     </div>
   </div>
 </section>
@@ -737,49 +737,20 @@
     success.classList.add('show');
   }
 
-  form.addEventListener('submit', async function(e) {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const data = {
       이름: form.name.value,
       소속: form.org.value,
-      연락처: form.contact.value,
-      세미나: '네 번째 국회 세미나 — AI가 먼저 삼킨 일자리? 국내 1위 채용 데이터에 물었다 (2026.07.13)',
-      _subject: '[세미나 신청] AI가 먼저 삼킨 일자리? (2026.07.13)',
-      _captcha: 'false',
-      _template: 'table'
+      연락처: form.contact.value
     };
 
-    const originalLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = '전송 중…';
-    errorBox.classList.remove('show');
+    // 메일 앱을 신청 내용이 채워진 채로 연다 (외부 서비스 없이 동작)
+    window.location.href = mailtoLink(data);
 
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/tech_n_politics@naver.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      let ok = res.ok;
-      try {
-        const json = await res.json();
-        if (json && String(json.success) === 'false') ok = false;
-      } catch (_) { /* non-JSON response: rely on res.ok */ }
-
-      if (ok) { showSuccess(); return; }
-      throw new Error('HTTP ' + res.status);
-    } catch (err) {
-      // 온라인 전송 실패 시: 안내 + 이메일 대체 수단
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalLabel;
-      errorBox.innerHTML =
-        '온라인 신청 전송이 원활하지 않습니다. ' +
-        '<a href="' + mailtoLink(data) + '">여기를 눌러 이메일로 신청</a>하시거나 ' +
-        'tech_n_politics@naver.com 으로 이름·소속·연락처를 보내주세요.';
-      errorBox.classList.add('show');
-    }
+    // 안내 화면 표시
+    showSuccess();
   });
 </script>
 
